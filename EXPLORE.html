@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Explore – Leafy Love</title>
+  <style>
+   /* General body styling */
+	body {
+	  margin: 0;
+	  font-family: 'Segoe UI', sans-serif;
+	  background-color: #f8f6f2;
+	  color: #2e4d30;
+	}
+
+	/* Header */
+	header {
+	  background-color: #d8f3dc;
+	  padding: 15px 30px;
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	}
+
+	.logo img {
+	  height: 60px;
+	}
+
+	nav a {
+	  margin-left: 20px;
+	  text-decoration: none;
+	  color: green;
+	  font-weight: bold;
+	}
+
+	/* Hero section with image and overlaid text */
+	.explore-hero {
+	  position: relative;
+	  width: 100%;
+	  height: 300px;
+	  overflow: hidden;
+	}
+
+	.explore-hero img {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	  display: block;
+	}
+
+	.explore-hero .hero-text {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  color: white;
+	  font-size: 3rem;
+	  font-weight: bold;
+	  text-align: center;
+	  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+	}
+
+	/* Quick link section */
+	.link-section {
+	  text-align: center;
+	  padding: 30px 20px;
+	  background-color: #e8fbe8;
+	}
+
+	.link-section h2 {
+	  margin-bottom: 20px;
+	}
+
+	.quick-links {
+	  display: flex;
+	  justify-content: center;
+	  flex-wrap: wrap;
+	  gap: 20px;
+	}
+
+	.quick-links a {
+	  text-decoration: none;
+	  background-color: #cce3d6;
+	  color: #1b512d;
+	  padding: 12px 20px;
+	  border-radius: 8px;
+	  font-weight: 600;
+	  transition: background 0.3s;
+	}
+
+	.quick-links a:hover {
+	  background-color: #b7d7c1;
+	}
+
+	/* Plant category section */
+	.explore-section {
+	  padding: 40px 20px;
+	  max-width: 1100px;
+	  margin: auto;
+	}
+
+	.explore-grid {
+	  display: grid;
+	  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	  gap: 30px;
+	}
+
+	.explore-card {
+	  background-color: #ffffff;
+	  border-radius: 12px;
+	  overflow: hidden;
+	  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+	  transition: transform 0.3s ease;
+	}
+
+	.explore-card:hover {
+	  transform: translateY(-5px);
+	}
+
+	.explore-card img {
+	  width: 100%;
+	  height: 180px;
+	  object-fit: cover;
+	}
+
+	.explore-card h3 {
+	  margin: 15px;
+	  color: #2e7d32;
+	}
+
+	.explore-card p {
+	  margin: 0 15px 20px;
+	  font-size: 0.95rem;
+	}
+
+	/* Footer */
+	footer {
+	  background-color: #d8f3dc;
+	  text-align: center;
+	  padding: 15px;
+	  margin-top: 40px;
+	  font-size: 0.9rem;
+	}
+
+  </style>
+</head>
+<body>
+   <!-- Header -->
+  <header>
+  <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+    <img src="Logo.png" alt="LeafyLove Logo" style="height: 70px;" />
+    <span style="font-size: 2rem; font-weight: bold; color: #2a6b2a; font-family: 'Georgia', serif;">
+      Leafy Love
+    </span>
+  </div>
+  <nav>
+    <a href="HOME.html">Home</a>
+    <a href="EXPLORE.html">Explore</a>
+    <a href="SHOP.html">Shop</a>
+    <a href="ABOUT.html">About</a>
+    <a href="CONTACT.html">Contact</a>
+	<a href="LOGIN.html">Login</a>
+  </nav>
+</header>
+
+  <div class="explore-hero">
+  <img src="explore-hero.jpg" alt="Nature Background" class="hero-image" />
+  <div class="hero-text">
+    <h3>Explore Our Green World</h3>
+  </div>
+</div>
+
+  <!-- New Quick Links Section -->
+  <section class="link-section">
+    <h2>Quick Plant Resources</h2>
+    <div class="quick-links">
+      <a href="plantdetails.html">Plant Details</a>
+      <a href="plantencyclopedia.html">Plant Encyclopedia</a>
+      <a href="seasonal.html">Seasonal Recommendation</a>
+    </div>
+  </section>
+
+  <section class="explore-section">
+    <div class="explore-grid">
+      <div class="explore-card">
+        <img src="indoor.jpg" alt="Indoor Plants" />
+        <h3>Indoor Plants</h3>
+        <p>Breathe fresh air and add greenery inside your home with easy-to-care indoor plants.</p>
+      </div>
+
+      <div class="explore-card">
+        <img src="succulents.jpg" alt="Succulents" />
+        <h3>Succulents</h3>
+        <p>Perfect for small spaces and low maintenance. Explore colorful and cute succulents.</p>
+      </div>
+
+      <div class="explore-card">
+        <img src="flowering.jpg" alt="Flowering Plants" />
+        <h3>Flowering Plants</h3>
+        <p>Bring vibrant colors and sweet fragrances to your home or garden with flowering plants.</p>
+      </div>
+
+      <div class="explore-card">
+        <img src="outdoor.jpg" alt="Outdoor Plants" />
+        <h3>Outdoor Plants</h3>
+        <p>Make your balcony or garden bloom with lush, sun-loving outdoor plants.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span style="font-size: 16px; font-weight: bold; color: #2a6b2a;">© 2025 Leafy Love - All rights reserved.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leafy Love- About</title>
+  <style>
+    :root {
+      --green: #2e7d32;
+      --light-green: #e9f5e9;
+      --background: #f8f6f2;
+      --accent-green: #4caf50;
+      --dark-green: #1b5e20;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--background);
+      color: var(--green);
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #d8f3dc;
+      padding: 10px 20px;
+    }
+
+    .logo img {
+      height: 70px;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 20px;
+      color: var(--green);
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--dark-green);
+    }
+
+    /* Slider */
+    .slider {
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      animation: fade 54s infinite;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide:nth-child(1) { animation-delay: 0s; }
+    .slide:nth-child(2) { animation-delay: 18s; }
+    .slide:nth-child(3) { animation-delay: 36s; }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      30% { opacity: 1; }
+      35% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    /* About Section */
+    .about-section {
+      background-color: #f4fbf6;
+      padding: 60px 20px;
+    }
+
+    .about-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .about-text {
+      flex: 1 1 450px;
+      background: #ffffff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      color: #27632a;
+    }
+
+    .about-text h2 {
+      font-family: 'Georgia', serif;
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      color: var(--green);
+    }
+
+    .about-text p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--accent-green);
+      color: #fff;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 5px 10px rgba(76, 175, 80, 0.4);
+    }
+
+    .btn:hover {
+      background-color: #388e3c;
+      box-shadow: 0 8px 15px rgba(56, 142, 60, 0.6);
+    }
+
+    .about-image {
+      flex: 1 1 450px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Plants Section */
+    .plants {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .plants h2 {
+      color: var(--dark-green);
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .plant-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .plant-box {
+      background: var(--light-green);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 300px;
+      flex: 1 1 300px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .plant-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .plant-box img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .plant-box h3 {
+      margin-top: 12px;
+      color: var(--green);
+    }
+
+    /* Category Section */
+    .categories {
+      background-color: #e6f5ea;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .categories h2 {
+      font-size: 2rem;
+      color: var(--green);
+      margin-bottom: 30px;
+    }
+
+    .category-boxes {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .category {
+      width: 250px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+    }
+
+    .category img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .category h3 {
+      margin-top: 12px;
+      color: var(--dark-green);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background-color: #f0fdf4;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      color: var(--green);
+      margin-bottom: 30px;
+    }
+
+    .testimonial-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .testimonial {
+      background: white;
+      max-width: 400px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    .testimonial p {
+      font-style: italic;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .testimonial h4 {
+      margin-top: 15px;
+      color: var(--green);
+    }
+
+    /* Contact */
+    .contact-section {
+      padding: 50px 20px;
+      background-color: var(--light-green);
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background-color: var(--accent-green);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #388e3c;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      nav a {
+        margin: 10px 10px 0;
+      }
+
+      .category-boxes, .testimonial-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .plant-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+  <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+    <img src="Logo.png" alt="LeafyLove Logo" style="height: 70px;" />
+    <span style="font-size: 2rem; font-weight: bold; color: #2a6b2a; font-family: 'Georgia', serif;">
+      Leafy Love
+    </span>
+  </div>
+     <nav>
+		<a href="HOME.html">Home</a>
+		<a href="EXPLORE.html">Explore</a>
+		<a href="SHOP.html">Shop</a>
+		<a href="ABOUT.html">About</a>
+		<a href="CONTACT.html">Contact</a>
+		<a href="LOGIN.html">Login</a>
+	  </nav>
+</header>
+
+
+  <!-- Slider -->
+  <div class="slider">
+    <div class="slide"><img src="Plant1.jpg" alt="Plant 1"></div>
+    <div class="slide"><img src="Tool.jpg" alt="Plant 2"></div>
+    <div class="slide"><img src="Flower.jpg" alt="Plant 3"></div>
+  </div>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>About Leafy Love</h2>
+        <p>At Leafy Love, we nurture your love for plants by providing carefully selected indoor greens, succulents, and tools that bring freshness and calm to your living spaces.</p>
+        <p>Our passion is to inspire mindful living through greenery. From beginners to seasoned plant parents, we support your journey with quality plants and eco-friendly advice.</p>
+        <a href="#" class="btn">Explore Our Shop</a>
+      </div>
+      <div class="about-image">
+        <img src="explore-hero.jpg" alt="About Leafy Love" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Plants Section -->
+  <section class="plants">
+    <h2>Our Plant Picks</h2>
+    <div class="plant-container">
+      <div class="plant-box">
+        <img src="indoor.jpg" alt="Indoor Plant">
+        <h3>Indoor Plants</h3>
+        <p>Indoor plants make your home fresh and peaceful. They also clean the air naturally.</p>
+      </div>
+      <div class="plant-box">
+        <img src="succulents.jpg" alt="Succulent">
+        <h3>Succulents</h3>
+        <p>Succulents are easy to care for, need less water, and look stylish anywhere.</p>
+      </div>
+      <div class="plant-box">
+        <img src="outdoor.jpg" alt="Outdoor Plant">
+        <h3>Outdoor Plants</h3>
+        <p>Outdoor plants thrive in your garden and add vibrant life to your outdoor space.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <h2>Shop by Category</h2>
+    <div class="category-boxes">
+      <div class="category">
+        <img src="bonsai.jpg" alt="Bonsai">
+        <h3>Bonsai</h3>
+      </div>
+      <div class="category">
+        <img src="succulents.jpg" alt="Succulent">
+        <h3>Succulents</h3>
+      </div>
+      <div class="category">
+        <img src="herbs.jpg" alt="Herbs">
+        <h3>Herbs</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-container">
+      <div class="testimonial">
+        <p>"The indoor plants from Leafy Love completely transformed my living room. So fresh and easy to maintain!"</p>
+        <h4>- Sarah L.</h4>
+      </div>
+      <div class="testimonial">
+        <p>"I love how easy their succulents are to care for. Perfect for my busy schedule."</p>
+        <h4>- James K.</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Great variety and fast delivery. My garden looks amazing thanks to their outdoor plant selection."</p>
+        <h4>- Priya M.</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+	
+</body>
+</html>

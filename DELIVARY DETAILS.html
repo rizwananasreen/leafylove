@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leafy Love - Delivery Details</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f6f2;
+      color: #2f4f2f;
+    }
+
+    header {
+      background-color: #d8f3dc;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: green;
+      font-weight: bold;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 30px auto;
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .submit-btn {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 15px;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+      <img src="Logo.png" alt="LeafyLove Logo" style="height: 70px;" />
+      <span style="font-size: 2rem; font-weight: bold; color: #2a6b2a; font-family: 'Georgia', serif;">
+        Leafy Love
+      </span>
+    </div>
+    <nav>
+      <a href="HOME.html">Home</a>
+      <a href="EXPLORE.html">Explore</a>
+      <a href="SHOP.html">Shop</a>
+      <a href="ABOUT.html">About</a>
+      <a href="CONTACT.html">Contact</a>
+      <a href="LOGIN.html">Login</a>
+    </nav>
+  </header>
+
+  <h2>Delivery Details</h2>
+
+  <div class="form-container">
+    <form id="deliveryForm">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required placeholder="10-digit number" />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+
+      <label for="city">City</label>
+      <input type="text" id="city" name="city" required />
+
+      <label for="state">State</label>
+      <select id="state" name="state" required>
+        <option value="">Select State</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Maharashtra">Maharashtra</option>
+      </select>
+
+      <label for="zip">Postal Code</label>
+      <input type="text" id="zip" name="zip" required placeholder="6-digit PIN code" />
+
+      <button type="submit" class="submit-btn">Continue to Payment</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("deliveryForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Stop form from submitting by default
+
+      // Get form values
+      const fullname = document.getElementById("fullname").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const city = document.getElementById("city").value.trim();
+      const state = document.getElementById("state").value;
+      const zip = document.getElementById("zip").value.trim();
+
+      // Regular expressions for validation
+      const phoneRegex = /^[0-9]{10}$/;
+      const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      const zipRegex = /^[0-9]{6}$/;
+
+      // Validation checks
+      if (!fullname || !phone || !email || !address || !city || !state || !zip) {
+        alert("Please fill in all fields before continuing.");
+        return;
+      }
+
+      if (!phoneRegex.test(phone)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return;
+      }
+
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      if (!zipRegex.test(zip)) {
+        alert("Please enter a valid 6-digit postal code.");
+        return;
+      }
+
+      // Success message + redirect
+      alert("Delivery details submitted successfully! Redirecting to payment page...");
+      window.location.href = "PAYMENT.html"; // Redirect to payment page
+    });
+  </script>
+</body>
+</html>

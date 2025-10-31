@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leafy Love - Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f8f6f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 100px;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #d8f3dc;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 20px;
+      color: #2e7d32;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #1b5e20;
+    }
+
+    .login-container {
+      background-color: #ffffff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-container h1 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    .login-container p {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .login-container input[type="email"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .login-container a.forgot {
+      font-size: 13px;
+      color: #388e3c;
+      text-decoration: none;
+      float: right;
+      margin-top: -5px;
+      margin-bottom: 20px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: #4caf50;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .login-container button:hover {
+      background-color: #388e3c;
+    }
+
+    .login-container .or {
+      text-align: center;
+      margin: 20px 0;
+      position: relative;
+      color: #888;
+    }
+
+    .login-container .or::before,
+    .login-container .or::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background-color: #ccc;
+    }
+
+    .login-container .or::before { left: 0; }
+    .login-container .or::after { right: 0; }
+
+    .login-container .or span {
+      background: #f8f6f2;
+      padding: 0 10px;
+    }
+
+    .google-btn {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      border-radius: 6px;
+      background-color: #db4437;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .google-btn:hover {
+      background-color: #c23321;
+    }
+
+    .login-container .signup {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .login-container .signup a {
+      color: #2e7d32;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+      <img src="Logo.png" alt="LeafyLove Logo" style="height: 70px;" />
+      <span style="font-size: 2rem; font-weight: bold; color: #2a6b2a; font-family: 'Georgia', serif;">
+        Leafy Love
+      </span>
+    </div>
+    <nav>
+      <a href="HOME.html">Home</a>
+      <a href="EXPLORE.html">Explore</a>
+      <a href="SHOP.html">Shop</a>
+      <a href="ABOUT.html">About</a>
+      <a href="CONTACT.html">Contact</a>
+      <a href="LOGIN.html" id="login-link">Login</a>
+      <a href="#" id="logout-link" style="display: none;">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Login Form -->
+  <div class="login-container" id="login-container">
+    <h1>Leafy Love</h1>
+    <p>Welcome back! Please log in to continue.</p>
+
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <a href="#" class="forgot">Forgot password?</a>
+
+      <button type="submit">Login</button>
+
+      <div class="or"><span>or</span></div>
+
+      <a href="https://accounts.google.com" class="google-btn" target="_blank">
+        Login with Google
+      </a>
+    </form>
+
+    <div class="signup">
+      New to Leafy Love? <a href="SIGN IN.html">Create Account</a>
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const loginContainer = document.getElementById("login-container");
+    const loginLink = document.getElementById("login-link");
+    const logoutLink = document.getElementById("logout-link");
+
+    // Check if already logged in
+    if (localStorage.getItem("loggedInUser")) {
+      showLoggedInUI();
+    }
+
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (email === "" || password === "") {
+        alert("⚠️ Please fill in all fields.");
+        return;
+      }
+
+      // ✅ Password validation: at least 8 characters, contains both letters and numbers
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+      if (!passwordRegex.test(password)) {
+        alert("❌ Password must be at least 8 characters long and include both letters and numbers.");
+        return;
+      }
+
+      // Fake login (password check for demo)
+      if (password === "leafy1234" || passwordRegex.test(password)) {
+        const username = email.split("@")[0];
+        localStorage.setItem("loggedInUser", username);
+        alert("✅ Login successful!");
+        showLoggedInUI();
+      } else {
+        alert("❌ Invalid credentials! Try again.");
+      }
+    });
+
+    function showLoggedInUI() {
+      const username = localStorage.getItem("loggedInUser");
+      loginContainer.innerHTML = `
+        <h1>Welcome 🌿</h1>
+        <p style="text-align:center; color:#2e7d32;">Hello, <b>${username.charAt(0).toUpperCase() + username.slice(1)}</b>!</p>
+        <p style="text-align:center; margin-top:20px;">You’re successfully logged in to Leafy Love.</p>
+        <button id="goShop" style="margin-top:20px; background-color:#4caf50; color:white; padding:10px 20px; border:none; border-radius:6px; cursor:pointer;">Go to Shop</button>
+      `;
+      document.getElementById("goShop").onclick = () => {
+        window.location.href = "SHOP.html";
+      };
+      loginLink.style.display = "none";
+      logoutLink.style.display = "inline";
+    }
+
+    logoutLink.addEventListener("click", () => {
+      localStorage.removeItem("loggedInUser");
+      alert("👋 You have logged out!");
+      window.location.reload();
+    });
+  </script>
+</body>
+</html>

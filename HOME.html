@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leafy Love - Home</title>
+  <style>
+		body {
+		  margin: 0;
+		  font-family: Arial, sans-serif;
+		  background-color: #f8f6f2;
+		}
+
+		header {
+		  display: flex;
+		  justify-content: space-between;
+		  align-items: center;
+		  background: #d8f3dc;
+		  padding: 10px 20px;
+		}
+		.logo img {
+		  height: 70px;
+		}
+		nav a {
+		  text-decoration: none;
+		  margin-left: 20px;
+		  color: green;
+		  font-weight: bold;
+		}
+
+		/* 🌿 Faster Slider Animation */
+		.slider {
+		  width: 100%;
+		  height: 400px;
+		  overflow: hidden;
+		  position: relative;
+		}
+		.slide {
+		  position: absolute;
+		  width: 100%;
+		  height: 100%;
+		  opacity: 0;
+		  animation: fade 18s infinite;
+		}
+		.slide:nth-child(1) { animation-delay: 0s; }
+		.slide:nth-child(2) { animation-delay: 6s; }
+		.slide:nth-child(3) { animation-delay: 12s; }
+
+		.slide img {
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		  display: block;
+		}
+
+		@keyframes fade {
+		  0%   { opacity: 0; }
+		  5%   { opacity: 1; }
+		  30%  { opacity: 1; }
+		  35%  { opacity: 0; }
+		  100% { opacity: 0; }
+		}
+
+		.features {
+		  display: flex;
+		  flex-wrap: wrap;
+		  justify-content: center;
+		  gap: 30px;
+		  padding: 40px;
+		  background-color: #f8f6f2;
+		}
+
+		.feature-box {
+		  background: #ffffff;
+		  border-radius: 10px;
+		  width: 300px;
+		  text-align: center;
+		  padding: 20px;
+		  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		  transition: transform 0.3s;
+		}
+
+		.feature-box:hover {
+		  transform: translateY(-5px);
+		}
+
+		.feature-box img {
+		  width: 100%;
+		  height: 180px;
+		  object-fit: cover;
+		  border-radius: 8px;
+		}
+
+		.feature-box h3 {
+		  margin-top: 15px;
+		  color: #2e7d32;
+		}
+
+		.feature-box p {
+		  font-size: 0.95rem;
+		  color: #444;
+		  margin: 10px 0;
+		}
+
+		.feature-box button {
+		  margin-top: 10px;
+		  padding: 10px 20px;
+		  background-color: #2e7d32;
+		  color: white;
+		  border: none;
+		  border-radius: 5px;
+		  cursor: pointer;
+		  font-weight: bold;
+		}
+
+		.feature-box button:hover {
+		  background-color: #1b5e20;
+		}
+
+		@media (max-width: 900px) {
+		  .features {
+			flex-direction: column;
+			align-items: center;
+		  }
+
+		  .location {
+			flex-direction: column;
+			align-items: center;
+			gap: 20px;
+		  }
+		}
+
+		.location {
+		  display: flex;
+		  justify-content: space-between;
+		  align-items: center;
+		  padding: 30px 20px;
+		  background: #e9f5e9;
+		  flex-wrap: wrap;
+		}
+
+		.location-text {
+		  flex: 1;
+		  min-width: 200px;
+		  margin-top: 10px;
+		}
+
+		.location-map {
+		  flex: 2;
+		  min-width: 300px;
+		  min-height: 300px;
+		}
+
+		.location-map img {
+		  width: 100%;
+		  height: auto;
+		  border-radius: 8px;
+		}
+		.location-text h2{
+		  color: #1b5e20;
+		  margin-bottom: 10px;
+		}
+		.location-text p {
+		  color: #2e7d32;
+		  text-decoration: none;
+		}
+
+		.offers {
+		  background-color: #f0fdf4;
+		  padding: 60px 20px;
+		  text-align: center;
+		}
+
+		.offers h2 {
+		  font-size: 2.5rem;
+		  color: #2e7d32;
+		  margin-bottom: 40px;
+		}
+
+		.offers-container {
+		  display: flex;
+		  flex-wrap: wrap;
+		  justify-content: center;
+		  gap: 30px;
+		}
+
+		.offer-card {
+		  background-color: #ffffff;
+		  border-radius: 12px;
+		  width: 280px;
+		  padding: 30px 20px;
+		  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		  transition: transform 0.3s, box-shadow 0.3s;
+		  position: relative;
+		}
+
+		.offer-card:hover {
+		  transform: translateY(-5px);
+		  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+		}
+
+		.offer-card .emoji {
+		  font-size: 2.5rem;
+		  margin-bottom: 15px;
+		}
+
+		.offer-card h3 {
+		  color: #1b5e20;
+		  margin-bottom: 15px;
+		}
+
+		.offer-card p {
+		  font-size: 1rem;
+		  color: #444;
+		  margin-bottom: 20px;
+		}
+
+		.offer-card button {
+		  background-color: #2e7d32;
+		  color: #fff;
+		  padding: 10px 20px;
+		  font-weight: bold;
+		  border: none;
+		  border-radius: 6px;
+		  cursor: pointer;
+		  transition: background-color 0.3s;
+		}
+
+		.offer-card button:hover {
+		  background-color: #1b5e20;
+		}
+
+		@media (max-width: 768px) {
+		  .offers h2 {
+			font-size: 2rem;
+		  }
+
+		  .offer-card {
+			width: 90%;
+		  }
+		  .footer-container {
+		     flex-direction: column;
+			 text-align: center;
+		   }
+		  .logo-title {
+		     justify-content: center;
+		   }
+		}
+
+        .footer {
+		  background-color: #e8f5e9;
+		  color: #2e7d32;
+		  font-family: Arial, sans-serif;
+		  padding: 40px 20px;
+		}
+
+		.footer-container {
+		  display: flex;
+		  flex-wrap: wrap;
+		  justify-content: space-between;
+		  max-width: 1000px;
+		  margin: auto;
+		  align-items: flex-start;
+		}
+
+		.footer-brand {
+		  flex: 1.2;
+		  min-width: 250px;
+		  margin-bottom: 20px;
+		}
+
+		.logo-title {
+		  display: flex;
+		  align-items: center;
+		  gap: 10px;
+		}
+
+		.footer-logo {
+		  width: 40px;
+		  height: 40px;
+		}
+
+		.footer-brand h2 {
+		  color: #1b5e20;
+		  font-size: 24px;
+		  margin: 0;
+		}
+
+		.tagline {
+		  font-style: italic;
+		  margin-top: 10px;
+		}
+
+		.hours {
+		  margin-top: 10px;
+		  font-weight: 500;
+		}
+
+		.footer-section {
+		  flex: 1;
+		  min-width: 250px;
+		  margin-bottom: 20px;
+		}
+
+		.footer-section h3 {
+		  color: #1b5e20;
+		  margin-bottom: 10px;
+		}
+
+		.footer-section ul {
+		  list-style: none;
+		  padding: 0;
+		  line-height: 1.8;
+		}
+
+		.footer-section a {
+		  color: #2e7d32;
+		  text-decoration: none;
+		}
+
+		.footer-section a:hover {
+		  color: #1b5e20;
+		  text-decoration: underline;
+		}
+
+		.footer hr {
+		  border: 0;
+		  height: 1px;
+		  background-color: #c8e6c9;
+		  margin: 20px 0;
+		}
+
+		.footer p.copyright {
+		  text-align: center;
+		  font-size: 18px;
+		  color: green;
+		  font-weight: bold;
+		}
+
+		@media (max-width: 768px) {
+		  .footer-container {
+			flex-direction: column;
+			text-align: center;
+		  }
+		  .logo-title {
+			justify-content: center;
+		  }
+		}
+  </style>
+</head>
+<body>
+
+   <!-- Header -->
+  <header>
+  <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+    <img src="Logo.png" alt="LeafyLove Logo" style="height: 70px;" />
+    <span style="font-size: 2rem; font-weight: bold; color: #2a6b2a; font-family: 'Georgia', serif;">
+      Leafy Love
+    </span>
+  </div>
+  <nav>
+    <a href="HOME.html">Home</a>
+    <a href="EXPLORE.html">Explore</a>
+    <a href="SHOP.html">Shop</a>
+    <a href="ABOUT.html">About</a>
+    <a href="CONTACT.html">Contact</a>
+	<a href="LOGIN.html">Login</a>
+  </nav>
+</header>
+
+  <!-- Slider -->
+  <div class="slider">
+    <div class="slide">
+      <img src="Plant1.jpg" alt="Plant 1" />
+    </div>
+    <div class="slide">
+      <img src="Tool.jpg" alt="Plant 2" />
+    </div>
+    <div class="slide">
+      <img src="Flower.jpg" alt="Plant 3" />
+    </div>
+  </div>
+
+	<!-- Offers Section -->
+	<section class="offers">
+	  <h2>🌿 Special Offers Just for You</h2>
+	  <div class="offers-container">
+
+		<div class="offer-card">
+		  <div class="emoji">🍁</div>
+		  <h3>Autumn Green Sale</h3>
+		  <p>Enjoy up to <strong>30% off</strong> on select air-purifying plants this season.</p>
+		  <button>Shop the Sale</button>
+		</div>
+
+		<div class="offer-card">
+		  <div class="emoji">🌵</div>
+		  <h3>Buy 2 Get 1 Free</h3>
+		  <p>On all succulents and cactus varieties – mix & match your favorites!</p>
+		  <button>Explore Deals</button>
+		</div>
+
+		<div class="offer-card">
+		  <div class="emoji">🪴</div>
+		  <h3>Free Pot With Purchase</h3>
+		  <p>Spend $50+ and get a ceramic pot absolutely free – while supplies last!</p>
+		  <button>Claim Offer</button>
+		</div>
+
+	  </div>
+	</section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="feature-box">
+      <img src="air-purifying-plant.jpg" alt="Air Purifying Plant" />
+      <h3>Air-Purifying Wonders</h3>
+      <p>Improve your indoor air quality naturally with plants that filter out toxins and boost oxygen.</p>
+      <button>Learn More</button>
+    </div>
+    <div class="feature-box">
+      <img src="easy-care-plant.jpg" alt="Easy Care Plant" />
+      <h3>Low Maintenance, Big Impact</h3>
+      <p>Perfect for busy lifestyles — these plants thrive with minimal water and sunlight.</p>
+      <button>Learn More</button>
+    </div>
+    <div class="feature-box">
+      <img src="indoor-decor-plant.jpg" alt="Indoor Decor Plant" />
+      <h3>Stylish Green Interiors</h3>
+      <p>Add a touch of nature and elegance to any room with our designer plant picks.</p>
+      <button>Learn More</button>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+<section class="location">
+  <div class="location-text">
+    <h2>Visit Our Green Haven</h2>
+    <p>Leafy Love</p>
+    <p>123 Green Street,<br>
+       Bloomtown, Nature State 45678</p>
+    <p>📅 Open Daily: 9:00 AM – 6:00 PM</p>
+  </div>
+  <div class="location-map">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.068542938983!2d-122.42067928468133!3d37.77492977975998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808f74f41f2f%3A0x6b8a9d4cde0e7c3d!2sGreen%20Nursery!5e0!3m2!1sen!2sus!4v1697000000000!5m2!1sen!2sus" 
+      width="100%" 
+      height="300" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+	
+	<!-- Brand Section -->
+	<div class="footer-brand">
+	  <div class="logo-title">
+		<img src="logo.png" alt="Leafy Love Logo" class="footer-logo">
+		<h2>Leafy Love</h2>
+	  </div>
+	  <p class="tagline">"Breathe in nature, take home a little love."</p>
+	  <p class="hours">📅 <strong>Open Daily:</strong> 9:00 AM – 6:00 PM</p>
+	</div>
+
+	<!-- Services -->
+	<div class="footer-section">
+	  <h3>Our Services</h3>
+	  <ul>
+		<li>Indoor Plants</li>
+		<li>Outdoor Plants</li>
+		<li>Plant Care</li>
+		<li>Workshops</li>
+	  </ul>
+	</div>
+
+	<!-- Contact -->
+	<div class="footer-section">
+	  <h3>Contact Us</h3>
+	  <p>📧 <a href="mailto:hello@leafylove.com">hello@leafylove.com</a></p>
+	  <p>📞 +1 234 567 890</p>
+	  <p>📍 123 Green Street, Rose City</p>
+	  <a href="https://www.google.com/maps" class="location-map">View Map</a>
+	</div>
+  </div>
+
+  <hr>
+  <p class="copyright">© 2025 Leafy Love - All rights reserved.</p>
+</footer>
+
+</body>
+</html>

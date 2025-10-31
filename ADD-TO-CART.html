@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Leafy Love - Your Cart</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f8f6f2;
+    margin: 0;
+  }
+
+  /* 🌿 Header */
+  header {
+    background-color: #d8f3dc;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 65px;
+    }
+
+    .logo span {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2a6b2a;
+  }
+  .logo h1 {
+    color: #2e7d32;
+    font-weight: bold;
+    margin: 0;
+  }
+  nav a {
+    margin: 0 15px;
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* 🛒 Cart container */
+  .cart-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+  }
+  .cart-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  .item-details {
+    flex: 1;
+    margin-left: 20px;
+  }
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .quantity-controls button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .quantity-controls span {
+    font-weight: bold;
+  }
+  .total {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 20px;
+    color: #2e7d32;
+  }
+
+  /* Buttons */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  .buttons a {
+    display: inline-block;
+    background-color: #2e7d32;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .buttons a:hover {
+    background-color: #1b5e20;
+  }
+
+  .empty {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin: 50px 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- 🌿 Header Section -->
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="Leafy Love Logo">
+    <h1>Leafy Love</h1>
+  </div>
+  <nav>
+    <a href="HOME.html">Home</a>
+      <a href="EXPLORE.html">Explore</a>
+      <a href="SHOP.html">Shop</a>
+      <a href="ABOUT.html">About</a>
+      <a href="CONTACT.html">Contact</a>
+      <a href="LOGIN.html">Login</a>
+  </nav>
+</header>
+
+<!-- 🛒 Cart Section -->
+<div class="cart-container" id="cart-container"></div>
+<div class="total" id="total"></div>
+
+<!-- 🌼 Buttons -->
+<div class="buttons">
+  <a href="SHOP.html">← Continue Shopping</a>
+  <a href="DELIVARY DETAILS.html">Make Payment →</a>
+</div>
+
+<script>
+  function renderCart() {
+    const container = document.getElementById('cart-container');
+    const totalDiv = document.getElementById('total');
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    container.innerHTML = '';
+    let total = 0;
+
+    if (cart.length === 0) {
+      container.innerHTML = '<div class="empty">Your cart is empty 🌿</div>';
+      totalDiv.textContent = "Total: ₹0.00";
+      return;
+    }
+
+    cart.forEach((item, index) => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+      container.innerHTML += `
+        <div class="cart-item">
+          <img src="${item.image}" alt="${item.name}">
+          <div class="item-details">
+            <h4>${item.name}</h4>
+            <p>₹${item.price}</p>
+          </div>
+          <div class="quantity-controls">
+            <button onclick="changeQuantity(${index}, -1)">−</button>
+            <span>${item.quantity}</span>
+            <button onclick="changeQuantity(${index}, 1)">+</button>
+          </div>
+          <div>₹${itemTotal}</div>
+        </div>
+      `;
+    });
+
+    totalDiv.textContent = "Total: ₹" + total.toFixed(2);
+  }
+
+  function changeQuantity(index, delta) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart[index]) {
+      cart[index].quantity += delta;
+      if (cart[index].quantity <= 0) cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+  }
+
+  renderCart();
+</script>
+
+</body>
+</html>
