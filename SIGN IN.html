@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leafy Love - Sign Up</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f8f6f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 100px;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #d8f3dc;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo img { height: 60px; }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 20px;
+      color: #2e7d32;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: #1b5e20; }
+
+    .signup-container {
+      background-color: #ffffff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .signup-container h1 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    .signup-container p {
+      text-align: center;
+      color: #555;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .signup-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .signup-container button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: #4caf50;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .signup-container button:hover { background-color: #388e3c; }
+
+    .signup-container .login-link {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .signup-container .login-link a {
+      color: #2e7d32;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+      <img src="Logo.png" alt="LeafyLove Logo" style="height: 70px;" />
+      <span style="font-size: 2rem; font-weight: bold; color: #2a6b2a; font-family: 'Georgia', serif;">
+        Leafy Love
+      </span>
+    </div>
+    <nav>
+      <a href="HOME.html">Home</a>
+      <a href="EXPLORE.html">Explore</a>
+      <a href="SHOP.html">Shop</a>
+      <a href="ABOUT.html">About</a>
+      <a href="CONTACT.html">Contact</a>
+      <a href="LOGIN.html">Login</a>
+    </nav>
+  </header>
+
+  <!-- Sign Up Form -->
+  <div class="signup-container">
+    <h1>Create Account</h1>
+    <p>Join the Leafy Love community today.</p>
+
+    <form id="signupForm">
+      <input type="text" id="fullName" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="login-link">
+      Already have an account? <a href="LOGIN.html">Log In</a>
+    </div>
+  </div>
+
+  <script>
+    const signupForm = document.getElementById("signupForm");
+
+    signupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const fullName = document.getElementById("fullName").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+      // ✅ Password must have 8+ chars, letters, numbers, and special characters
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+      if (!passwordRegex.test(password)) {
+        alert("❌ Password must be at least 8 characters long, include letters, numbers, and a special symbol.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert("⚠️ Passwords do not match!");
+        return;
+      }
+
+      // ✅ Save user info in localStorage
+      const userData = { fullName, email, password };
+      localStorage.setItem("userData", JSON.stringify(userData));
+
+      alert("✅ Account created successfully! Redirecting to login...");
+      window.location.href = "LOGIN.html";
+    });
+  </script>
+
+</body>
+</html>

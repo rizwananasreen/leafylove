@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leafy Love - Payment</title>
+
+<!-- ✅ Local Bootstrap Files -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f6f2;
+    color: #2f4f2f;
+  }
+
+  header {
+    background-color: #d8f3dc;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .payment-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .payment-methods {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-right: 2px solid #e0e0e0;
+    padding-right: 30px;
+  }
+
+  .payment-method {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+  }
+
+  .payment-method input[type="radio"] {
+    accent-color: #2e7d32;
+    transform: scale(1.2);
+  }
+
+  form {
+    width: 55%;
+  }
+
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+
+  .info-text {
+    font-size: 0.9rem;
+    color: #2e7d32;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .submit-btn {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .submit-btn:hover {
+    background-color: #1b5e20;
+  }
+
+  /* ✅ Bootstrap Alert Custom Position */
+  .custom-alert {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    width: 50%;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+    <img src="Logo.png" alt="LeafyLove Logo" style="height: 70px;" />
+    <span style="font-size: 2rem; font-weight: bold; color: #2a6b2a; font-family: 'Georgia', serif;">
+      Leafy Love
+    </span>
+  </div>
+  <nav>
+    <a href="HOME.html">Home</a>
+    <a href="EXPLORE.html">Explore</a>
+    <a href="SHOP.html">Shop</a>
+    <a href="ABOUT.html">About</a>
+    <a href="CONTACT.html">Contact</a>
+    <a href="LOGIN.html">Login</a>
+  </nav>
+</header>
+
+<h2>Payment Details</h2>
+
+<div class="payment-container">
+  <!-- Left Column -->
+  <div class="payment-methods">
+    <label class="payment-method"><input type="radio" name="paymentMethod" value="card" checked> Credit / Debit Card</label>
+    <label class="payment-method"><input type="radio" name="paymentMethod" value="upi"> UPI</label>
+    <label class="payment-method"><input type="radio" name="paymentMethod" value="wallet"> Wallet</label>
+    <label class="payment-method"><input type="radio" name="paymentMethod" value="netbanking"> Net Banking</label>
+    <label class="payment-method"><input type="radio" name="paymentMethod" value="cod"> Cash on Delivery</label>
+  </div>
+
+  <!-- Right Column -->
+  <form id="paymentForm" onsubmit="return false;">
+    <div id="card-details">
+      <label for="cardName">Cardholder Name</label>
+      <input type="text" id="cardName" required>
+
+      <label for="cardNumber">Card Number</label>
+      <input type="text" id="cardNumber" maxlength="16" required>
+
+      <label for="expiry">Expiry Date</label>
+      <input type="month" id="expiry" required>
+
+      <label for="cvv">CVV</label>
+      <input type="password" id="cvv" maxlength="3" required>
+    </div>
+
+    <div id="upi-details" style="display:none;">
+      <label for="upiId">UPI ID</label>
+      <input type="text" id="upiId" placeholder="yourname@upi">
+    </div>
+
+    <div id="wallet-details" style="display:none;">
+      <label for="wallet">Select Wallet</label>
+      <select id="wallet">
+        <option value="">-- Choose Wallet --</option>
+        <option>Paytm</option>
+        <option>PhonePe</option>
+        <option>Google Pay</option>
+      </select>
+      <label for="walletNumber">Registered Wallet Number</label>
+      <input type="text" id="walletNumber" placeholder="Enter mobile number">
+    </div>
+
+    <div id="netbanking-details" style="display:none;">
+      <label for="bank">Select Your Bank</label>
+      <select id="bank">
+        <option value="">-- Choose Bank --</option>
+        <option>SBI</option>
+        <option>HDFC</option>
+        <option>ICICI</option>
+        <option>Axis</option>
+      </select>
+      <label for="bankUserId">Net Banking User ID</label>
+      <input type="text" id="bankUserId" placeholder="Enter NetBanking ID">
+    </div>
+
+    <div id="cod-details" style="display:none;" class="info-text">
+      💵 You can pay in cash once your order is delivered.
+    </div>
+
+    <button type="button" class="submit-btn" id="payNowBtn" onclick="showSuccessAlert()">Pay Now</button>
+  </form>
+</div>
+
+<!-- ✅ Success Alert (Bootstrap style) -->
+<div id="successAlert" class="alert alert-success custom-alert" role="alert">
+  <strong>✅ Success!</strong> Your order has been placed successfully.
+</div>
+
+<script>
+  // Switch payment methods
+  const radios = document.querySelectorAll('input[name="paymentMethod"]');
+  const sections = {
+    card: document.getElementById('card-details'),
+    upi: document.getElementById('upi-details'),
+    wallet: document.getElementById('wallet-details'),
+    netbanking: document.getElementById('netbanking-details'),
+    cod: document.getElementById('cod-details')
+  };
+
+  radios.forEach(r => {
+    r.addEventListener('change', () => {
+      for (let key in sections) {
+        sections[key].style.display = (r.value === key) ? 'block' : 'none';
+      }
+    });
+  });
+
+  // ✅ Show Bootstrap alert on button click
+  function showSuccessAlert() {
+    const alertBox = document.getElementById("successAlert");
+    alertBox.style.display = "block";
+    alertBox.classList.add("show");
+
+    // Auto hide alert after 3 seconds
+    setTimeout(() => {
+      alertBox.style.display = "none";
+      window.location.href = "SHOP.html";
+    }, 3000);
+  }
+</script>
+
+</body>
+</html>

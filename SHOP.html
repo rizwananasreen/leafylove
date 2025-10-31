@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Leafy Love - Shop</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    /* 🌿 Basic Styling */
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #f8f6f2;
+      color: #2e7d32;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #d8f3dc;
+      padding: 15px 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 65px;
+    }
+
+    .logo span {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2a6b2a;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 20px;
+      color: #1b512d;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #388e3c;
+    }
+
+    /* Quick Navigation Links */
+    .quick-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #cce3d6;
+      padding: 15px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    /* Category Title */
+    h2 {
+      text-align: center;
+      margin-top: 50px;
+      color: #2e7d32;
+      font-weight: bold;
+      font-size: 1.9rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 3px;
+      background-color: #4caf50;
+      margin: 10px auto 0;
+      border-radius: 3px;
+    }
+
+    /* 🌸 Item Grid */
+    .category {
+      margin: 40px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+
+    .item-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .item {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+    }
+
+    .item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 3px solid #d8f3dc;
+      transition: transform 0.3s ease;
+    }
+
+    .item:hover img {
+      transform: scale(1.05);
+    }
+
+    .item h4 {
+      margin: 15px 0 5px;
+      color: #388e3c;
+      font-size: 1.1rem;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #2e7d32;
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .add-to-cart-btn {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-bottom: 15px;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #2e7d32;
+    }
+
+    /* Offers Section */
+    .offers-section {
+      padding: 50px 20px;
+      background-color: #f0fdf4;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .offers-heading {
+      color: #2e7d32;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .offers-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .offer-box {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      padding: 25px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .offer-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    .offer-box h3 {
+      color: #388e3c;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .offer-box p {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .offer-btn {
+      background-color: #4caf50;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .offer-btn:hover {
+      background-color: #2e7d32;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #d8f3dc;
+      padding: 25px;
+      text-align: center;
+      margin-top: 50px;
+      color: #1b512d;
+      font-weight: 600;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+    }
+  .cart-icon {
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .cart-icon span {
+    background-color: white;
+    color: #2e7d32;
+    border-radius: 50%;
+    padding: 2px 8px;
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="Logo.png" alt="LeafyLove Logo">
+      <span>Leafy Love</span>
+    </div>
+    <nav>
+      <a href="HOME.html">Home</a>
+      <a href="EXPLORE.html">Explore</a>
+      <a href="SHOP.html">Shop</a>
+      <a href="ABOUT.html">About</a>
+      <a href="CONTACT.html">Contact</a>
+      <a href="LOGIN.html">Login</a>
+	  <div class="cart-icon" onclick="window.location.href='ADD-TO-CART.html'">
+  🛒 <span id="cart-count">0</span>
+</div>
+
+    </nav>
+  </header>
+
+  <!-- Category -->
+ <!-- 1. Plants -->
+	<div class="category" id="plants">
+	  <h2>Plants</h2>
+      <div class="item-grid">
+      <div class="item">
+        <img src="snake-plant.jpg" alt="Snake Plant" />
+        <h4>Snake Plant</h4>
+        <div class="price">₹500</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="aloe-vera.jpg" alt="Aloe Vera" />
+        <h4>Aloe Vera</h4>
+        <div class="price">₹450</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="money-plant.jpg"  alt="Money Plant" />
+        <h4>Money Plant</h4>
+        <div class="price">₹300</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="areca-plam.jpg" alt="Areca Palm" />
+        <h4>Areca Palm</h4>
+        <div class="price">₹680</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="peace Lily.jpg" alt="Peace Lily" />
+        <h4>Peace Lily</h4>
+        <div class="price">₹380</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="croton.jpg" alt="Croton" />
+        <h4>Croton</h4>
+        <div class="price">₹600</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="rubber-plant.jpg" alt="Rubber Plant" />
+        <h4>Rubber Plant</h4>
+        <div class="price">₹670</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="spider-plant.jpg" alt="Spider Plant" />
+        <h4>Spider Plant</h4>
+        <div class="price">₹670</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="zz-plant.jpg" alt="ZZ Plant" />
+        <h4>ZZ Plant</h4>
+        <div class="price">₹500</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="philodendron.jpg" alt="Philodendron" />
+        <h4>Philodendron</h4>
+        <div class="price">₹439</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 2. Seeds -->
+	<div class="category" id="seeds">
+	  <h2>Seeds</h2>
+    <div class="item-grid">
+      <div class="item">
+        <img src="Tomato Seeds.jpg" alt="Tomato Seeds" />
+        <h4>Tomato Seeds</h4>
+        <div class="price">₹100</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Chili Seeds.jpg" alt="Chili Seeds" />
+        <h4>Chili Seeds</h4>
+        <div class="price">₹165</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Basil Seeds.jpg" alt="Basil Seeds" />
+        <h4>Basil Seeds</h4>
+        <div class="price">₹230</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Mint Seeds.jpg" alt="Mint Seeds" />
+        <h4>Mint Seeds</h4>
+        <div class="price">₹100</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Sunflower Seeds.jpg" alt="Sunflower Seeds" />
+        <h4>Sunflower Seeds</h4>
+        <div class="price">₹330</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Spinach Seeds.jpg" alt="Spinach Seeds" />
+        <h4>Spinach Seeds</h4>
+        <div class="price">₹265</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Carrot Seeds.jpg" alt="Carrot Seeds" />
+        <h4>Carrot Seeds</h4>
+        <div class="price">₹180</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Coriander Seeds.jpg" alt="Coriander Seeds" />
+        <h4>Coriander Seeds</h4>
+        <div class="price">₹300</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="mustard seeds1.jpg" alt="Mustard Seeds" />
+        <h4>Mustard Seeds</h4>
+        <div class="price">₹219</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Cucumber Seeds.jpg"  alt="Cucumber Seeds" />
+        <h4>Cucumber Seeds</h4>
+        <div class="price">₹285</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+   <!-- 3. Soil -->
+	<div class="category" id="soil">
+	  <h2>Soil</h2>
+    <div class="item-grid">
+      <div class="item">
+        <img src="Organic Soil.jpg" alt="Organic Soil" />
+        <h4>Organic Soil</h4>
+        <div class="price">₹700</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Cocopeat.jpg" alt="Cocopeat" />
+        <h4>Cocopeat</h4>
+        <div class="price">₹658</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Compost Mix.jpg" alt="Compost Mix" />
+        <h4>Compost Mix</h4>
+        <div class="price">₹790</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Potting Mix.jpg" alt="Potting Mix" />
+        <h4>Potting Mix</h4>
+        <div class="price">₹614</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Clay Soil.jpg" alt="Clay Soil" />
+        <h4>Clay Soil</h4>
+        <div class="price">₹526</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Garden Soil.jpg" alt="Garden Soil" />
+        <h4>Garden Soil</h4>
+        <div class="price">₹680</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Sandy Soil.jpg" alt="Sandy Soil" />
+        <h4>Sandy Soil</h4>
+        <div class="price">₹526</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Silt Soil.jpg" alt="Silt Soil" />
+        <h4>Silt Soil</h4>
+        <div class="price">₹570</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Peat Soil.jpg" alt="Peat Soil" />
+        <h4>Peat Soil</h4>
+        <div class="price">₹746</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Vermicompost.jpg" alt="Vermicompost" />
+        <h4>Vermicompost</h4>
+        <div class="price">₹702</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  
+   <!-- 4. Flowers -->
+  <div class="category">
+    <h2>Flowers</h2>
+    <div class="item-grid">
+      <div class="item">
+        <img src="Rose.jpg" alt="Rose"/>
+        <h4>Rose</h4>
+        <div class="price">₹702</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Marigold.jpg" alt="Marigold" />
+        <h4>Marigold</h4>
+        <div class="price">₹505</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Jasmine.jpg" alt="Jasmine" />
+        <h4>Jasmine</h4>
+        <div class="price">₹768</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src = "Lily.jpg" alt="Lily" />
+        <h4>Lily</h4>
+        <div class="price">₹475</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Hibiscus.jpg" alt="Hibiscus" />
+        <h4>Hibiscus</h4>
+        <div class="price">₹570</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Tulip.jpg" alt="Tulip" />
+        <h4>Tulip</h4>
+        <div class="price">₹600</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Sunflower.jpg" alt="Sunflower" />
+        <h4>Sunflower</h4>
+        <div class="price">₹750</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Daisy.jpg" alt="Daisy" />
+        <h4>Daisy</h4>
+        <div class="price">₹380</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Orchid.jpg" alt="Orchid" />
+        <h4>Orchid</h4>
+        <div class="price">₹876</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+      <div class="item">
+        <img src="Lotus.jpg" alt="Lotus" />
+        <h4>Lotus</h4>
+        <div class="price">₹650</div>
+		<button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+	</div>
+  </div>
+   <!-- 5. Gardening Tools -->
+  <div class="category" id="tools">
+	<h2>Gardening Tools</h2>
+  <div class="item-grid">
+    <div class="item">
+      <img src="Shovel.jpg" alt="Shovel" />
+      <h4>Shovel</h4>
+      <div class="price">₹1053</div>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <div class="item">
+      <img src="Rake.jpg" alt="Rake" />
+      <h4>Rake</h4>
+      <div class="price">₹1000</div>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <div class="item">
+      <img src="Hoe.jpg" alt="Hoe" />
+      <h4>Hoe</h4>
+      <div class="price">₹780</div>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <div class="item">
+      <img src="Pruner.jpg" alt="Pruner" />
+      <h4>Pruner</h4>
+      <div class="price">₹678</div>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <div class="item">
+      <img src="Watering Can.jpg" alt="Watering Can" />
+      <h4>Watering Can</h4>
+      <div class="price">₹600</div>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <div class="item">
+      <img src="Gardening Gloves.jpg" alt="Gardening Gloves" />
+      <h4>Gardening Gloves</h4>
+      <div class="price">₹878</div>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <div class="item">
+      <img src="Hose.jpg" alt="Hose" />
+      <h4>Hose</h4>
+      <div class="price">₹799</div>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <div class="item">
+      <img src="Seed Spreader.jpg" alt="Seed Spreader" />
+      <h4>Seed Spreader</h4>
+      <div class="price">₹879</div>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <div class="item">
+      <img src="Trowel.jpg" alt="Trowel" />
+      <h4>Trowel</h4>
+      <div class="price">₹490</div>
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <div class="item">
+      <img src="Pruning Shears.jpg" alt="Pruning Shears" />
+      <h4>Pruning Shears</h4>
+      <div class="price">₹590</div>
+      <button class="add-to-cart-btn">Add to Cart</button>
+     </div>
+   </div>
+ </div>
+  
+  <!-- Offers Section -->
+  <section class="offers-section">
+    <h2 class="offers-heading">🌱 Special Offers</h2>
+    <div class="offers-container">
+      <div class="offer-box">
+        <h3>Buy 2 Plants, Get 1 Free</h3>
+        <p>Add 3 plants to your cart, and one will be free automatically.</p>
+        <a href="#plants" class="offer-btn">Shop Now</a>
+      </div>
+
+      <div class="offer-box">
+        <h3>Flat 25% Off on Seeds</h3>
+        <p>Grow your garden! Get 25% off on all seeds this week.</p>
+        <a href="#seeds" class="offer-btn">Shop Seeds</a>
+      </div>
+	  
+	  <div class="offer-box">
+	  <h3>Special Offer: 50% Off Above ₹5000</h3>
+	  <p>Purchase items worth ₹5000 or more and get 50% off on your total order!</p>
+	  <a href="#seeds" class="offer-btn">Shop Now</a>
+      </div>
+
+    </div>
+  </section>
+  
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll('.add-to-cart-btn');
+    const cartCount = document.getElementById('cart-count');
+
+    // 🔁 Update the cart count number at the top
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = totalItems;
+    }
+
+    // 🛒 When "Add to Cart" button is clicked
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.item');
+        const name = item.querySelector('h4').innerText;
+        const priceText = item.querySelector('.price').innerText;
+        const price = parseFloat(priceText.replace('₹', '').trim());
+        const image = item.querySelector('img').src;
+
+        // Get or create the cart array
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Check if item already exists
+        const existing = cart.find(i => i.name === name);
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          cart.push({ name, price, image, quantity: 1 });
+        }
+
+        // Save updated cart
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Update the number in the cart icon
+        updateCartCount();
+
+        // Optional alert
+        alert(`${name} added to your cart!`);
+      });
+    });
+
+    // Initialize counter when the page first loads
+    updateCartCount();
+  });
+  </script>
+<footer>
+    <span style="font-size: 16px; font-weight: bold; color: #2a6b2a;">© 2025 Leafy Love - All rights reserved.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plant Details – Leafy Love</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f6f2;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #d8f3dc;
+      padding: 10px 20px;
+    }
+
+    .logo img {
+      height: 60px;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 20px;
+      color: green;
+      font-weight: bold;
+    }
+	.quick-links {
+	  display: flex;
+	  justify-content: center;
+	  flex-wrap: wrap;
+	  gap: 20px;
+	}
+
+	.quick-links a {
+	  text-decoration: none;
+	  background-color: #cce3d6;
+	  color: #1b512d;
+	  padding: 12px 20px;
+	  border-radius: 8px;
+	  font-weight: 600;
+	  transition: background 0.3s;
+	}
+
+	.quick-links a:hover {
+	  background-color: #b7d7c1;
+	}
+
+
+    .plant-details {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom: 40px;
+    }
+
+    .plant-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .plant-top img {
+      flex: 1 1 300px;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      height: 300px;
+    }
+
+    .plant-info {
+      flex: 1 1 400px;
+    }
+
+    .plant-info h2 {
+      color: #2e7d32;
+      margin-bottom: 15px;
+    }
+
+    .plant-info p {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    .plant-care {
+      margin-top: 30px;
+    }
+
+    .care-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .care-box {
+      background: #e9f5e9;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .care-box h4 {
+      color: #2e7d32;
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+
+   <!-- Header -->
+  <header>
+  <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+    <img src="Logo.png" alt="LeafyLove Logo" style="height: 70px;" />
+    <span style="font-size: 2rem; font-weight: bold; color: #2a6b2a; font-family: 'Georgia', serif;">
+      Leafy Love
+    </span>
+  </div>
+     <nav>
+		<a href="HOME.html">Home</a>
+		<a href="EXPLORE.html">Explore</a>
+		<a href="SHOP.html">Shop</a>
+		<a href="ABOUT.html">About</a>
+		<a href="CONTACT.html">Contact</a>
+		<a href="LOGIN.html">Login</a>
+	  </nav>
+</header>
+   <!-- New Quick Links Section -->
+  <section class="link-section">
+    <center><h2>Quick Plant Resources</h2></center>
+    <div class="quick-links">
+      <a href="plantdetails.html">Plant Details</a>
+      <a href="plantencyclopedia.html">Plant Encyclopedia</a>
+      <a href="seasonal.html">Seasonal Recommendation</a>
+    </div>
+  </section>
+
+  <!-- Peace Lily -->
+  <section class="plant-details">
+    <div class="plant-top">
+      <img src="Peace Lily.jpg" alt="Peace Lily">
+      <div class="plant-info">
+        <h2>Peace Lily (Spathiphyllum)</h2>
+        <p>The Peace Lily is a graceful tropical plant known for its elegant white flowers and deep green leaves. It is a natural air purifier and thrives in indoor environments with low to medium light. Its peaceful appearance brings calm to any space, and with regular watering, it can bloom multiple times throughout the year.</p>
+      </div>
+    </div>
+    <div class="plant-care">
+      <h3>Care Instructions</h3>
+      <div class="care-grid">
+        <div class="care-box"><h4>Light</h4><p>Indirect sunlight</p></div>
+        <div class="care-box"><h4>Water</h4><p>Weekly</p></div>
+        <div class="care-box"><h4>Soil</h4><p>Well-draining</p></div>
+        <div class="care-box"><h4>Temp</h4><p>18–27°C</p></div>
+        <div class="care-box"><h4>Humidity</h4><p>Moderate–High</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aloe Vera -->
+  <section class="plant-details">
+    <div class="plant-top">
+      <img src="aloe-vera.jpg" alt="Aloe Vera">
+      <div class="plant-info">
+        <h2>Aloe Vera</h2>
+        <p>Aloe Vera is a popular succulent well-known for its medicinal and cosmetic uses. The gel inside its thick leaves soothes burns, moisturizes skin, and promotes healing. It thrives in warm, sunny spots and needs minimal watering, making it perfect for those new to gardening or looking for a low-maintenance plant with natural benefits.</p>
+      </div>
+    </div>
+    <div class="plant-care">
+      <h3>Care Instructions</h3>
+      <div class="care-grid">
+        <div class="care-box"><h4>Light</h4><p>Direct sunlight</p></div>
+        <div class="care-box"><h4>Water</h4><p>Every 2–3 weeks</p></div>
+        <div class="care-box"><h4>Soil</h4><p>Sandy, fast-draining</p></div>
+        <div class="care-box"><h4>Temp</h4><p>13–27°C</p></div>
+        <div class="care-box"><h4>Humidity</h4><p>Low</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Snake Plant -->
+  <section class="plant-details">
+    <div class="plant-top">
+      <img src="snake-plant.jpg" alt="Snake Plant">
+      <div class="plant-info">
+        <h2>Snake Plant (Sansevieria)</h2>
+        <p>The Snake Plant is a hardy, striking houseplant with tall, sword-shaped leaves. It's one of the best plants for filtering indoor air and even produces oxygen at night, making it ideal for bedrooms. It thrives in almost any light condition and can go weeks without water, making it perfect for beginners or low-maintenance spaces.</p>
+      </div>
+    </div>
+    <div class="plant-care">
+      <h3>Care Instructions</h3>
+      <div class="care-grid">
+        <div class="care-box"><h4>Light</h4><p>Low–Bright</p></div>
+        <div class="care-box"><h4>Water</h4><p>Every 2–4 weeks</p></div>
+        <div class="care-box"><h4>Soil</h4><p>Well-drained</p></div>
+        <div class="care-box"><h4>Temp</h4><p>15–30°C</p></div>
+        <div class="care-box"><h4>Humidity</h4><p>Low</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spider Plant -->
+  <section class="plant-details">
+    <div class="plant-top">
+      <img src="spider-plant.jpg" alt="Spider Plant">
+      <div class="plant-info">
+        <h2>Spider Plant (Chlorophytum comosum)</h2>
+        <p>Spider Plants are easy to grow, fast to propagate, and perfect for hanging baskets. Their arching leaves and baby "spiderettes" add lively charm to any room. They're great air purifiers and thrive with minimal attention, making them a great starter plant or gift for new plant parents.</p>
+      </div>
+    </div>
+    <div class="plant-care">
+      <h3>Care Instructions</h3>
+      <div class="care-grid">
+        <div class="care-box"><h4>Light</h4><p>Bright, indirect</p></div>
+        <div class="care-box"><h4>Water</h4><p>1–2 times/week</p></div>
+        <div class="care-box"><h4>Soil</h4><p>General potting mix</p></div>
+        <div class="care-box"><h4>Temp</h4><p>18–24°C</p></div>
+        <div class="care-box"><h4>Humidity</h4><p>Moderate</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rubber Plant -->
+  <section class="plant-details">
+    <div class="plant-top">
+      <img src="rubber-plant.jpg" alt="Rubber Plant">
+      <div class="plant-info">
+        <h2>Rubber Plant (Ficus elastica)</h2>
+        <p>The Rubber Plant is admired for its broad, glossy leaves and upright growth. It can grow into a small indoor tree when given space and care. With regular watering and bright, filtered light, it develops strong stems and beautiful foliage. It’s a bold, dramatic plant that suits modern interiors and adds a tropical touch.</p>
+      </div>
+    </div>
+    <div class="plant-care">
+      <h3>Care Instructions</h3>
+      <div class="care-grid">
+        <div class="care-box"><h4>Light</h4><p>Bright, filtered</p></div>
+        <div class="care-box"><h4>Water</h4><p>Weekly</p></div>
+        <div class="care-box"><h4>Soil</h4><p>Well-draining</p></div>
+        <div class="care-box"><h4>Temp</h4><p>16–24°C</p></div>
+        <div class="care-box"><h4>Humidity</h4><p>Moderate</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZZ Plant -->
+  <section class="plant-details">
+    <div class="plant-top">
+      <img src="zz-plant.jpg" alt="ZZ Plant">
+      <div class="plant-info">
+        <h2>ZZ Plant (Zamioculcas zamiifolia)</h2>
+        <p>The ZZ Plant is incredibly tough and stylish, with shiny, dark green leaves that tolerate neglect. It survives in low-light conditions, rarely needs watering, and resists pests and diseases. A great choice for offices or bedrooms, it adds a sophisticated look while requiring minimal care and attention.</p>
+      </div>
+    </div>
+    <div class="plant-care">
+      <h3>Care Instructions</h3>
+      <div class="care-grid">
+        <div class="care-box"><h4>Light</h4><p>Low–Medium</p></div>
+        <div class="care-box"><h4>Water</h4><p>Every 2–3 weeks</p></div>
+        <div class="care-box"><h4>Soil</h4><p>Well-drained</p></div>
+        <div class="care-box"><h4>Temp</h4><p>15–26°C</p></div>
+        <div class="care-box"><h4>Humidity</h4><p>Low–Moderate</p></div>
+      </div>
+    </div>
+  </section>
+   
+</body>
+</html>
